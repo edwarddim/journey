@@ -2,7 +2,7 @@
   "name": "webpack-react",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "Michael Pontus <m.pontus@gmail.com>",
+  "author": "Edward Im",
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode production",
@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "bootstrap": "^5.1.0",
+    "dotenv": "^10.0.0",
+    "firebase": "^9.0.2",
     "react": "^16.9.0",
     "react-bootstrap": "^2.0.0-beta.6",
     "react-dom": "^16.9.0"
@@ -28,6 +30,7 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "css-loader": "^3.2.0",
+    "dotenv-webpack": "^7.0.3",
     "file-loader": "^4.2.0",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.8.0",

@@ -5,11 +5,22 @@ const webpack = require("webpack");
 const TerserWebpackPlugin = require("terser-webpack-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
+const Dotenv = require('dotenv-webpack');
+
+
 module.exports = function(_env, argv) {
   const isProduction = argv.mode === "production";
   const isDevelopment = !isProduction;
 
   return {
+  // NEW CONFIG FOR DOTENV
+    node: {
+      fs: "empty"
+   },
+   plugins: [
+    new Dotenv()
+  ],
+  //-----------------------------------------
     devtool: isDevelopment && "cheap-module-source-map",
     entry: "./src/index.js",
     output: {
