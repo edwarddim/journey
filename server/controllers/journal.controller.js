@@ -26,3 +26,21 @@ module.exports.getOne = async (req, res) => {
         res.json(error)
     }
 }
+
+module.exports.addEntry = async (req, res) => {
+    try {
+        const confirmation = await JournalService.addEntry(req.body, req.params.id)
+        return res.json(confirmation)
+    } catch (error) {
+        return res.json(error)
+    }
+}
+
+module.exports.delete = async (req, res) => {
+    try {
+        const deleteConfirm = await JournalService.deleteOne(req.params.id)
+        return res.json(deleteConfirm)
+    } catch (error) {
+        res.json(error)
+    }
+}

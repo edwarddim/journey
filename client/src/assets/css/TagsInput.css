@@ -44,3 +44,7 @@ body{
     border: none;
     outline: none;
 }
+
+.submit{
+    margin-top: 1em;
+}

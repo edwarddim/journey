@@ -11,7 +11,7 @@ const JournalSchema = new mongoose.Schema({
     tags:[TagSchema],
     entries:[{
         type:mongoose.Types.ObjectId,
-        ref:"Tag"
+        ref:"Entry"
     }]
 }, {timestamps:true})
 

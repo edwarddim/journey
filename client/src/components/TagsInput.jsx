@@ -1,8 +1,8 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import '../assets/css/TagsInput.css'
 
-const TagsInput = () => {
-
+const TagsInput = ({journal_id}) => {
     const [tags, setTags] = useState([])
     const [entry, setEntry] = useState("")
 
@@ -15,6 +15,16 @@ const TagsInput = () => {
     }
 
     const removeTag = index => setTags(tags.filter((el, i) => i !== index))
+
+    const submitEntry = () => {
+        const body = {
+            tags,
+            entry
+        }
+        axios.post(`http://localhost:8000/api/journals/${journal_id}`, body)
+            .then(response => console.log(response.data))
+            .catch(error => console.log(error))
+    }
 
     return (
         <div>
@@ -43,6 +53,7 @@ const TagsInput = () => {
                     placeholder="Write your thoughts" cols="30" rows="10"
                 ></textarea>
             </div>
+            <button onClick={submitEntry} className='submit'>Submit</button>
         </div>
 
     )

@@ -24,7 +24,7 @@ const Journal = ({}) => {
         (journal) ?
         <div>
           <h1>{journal.name} Journal</h1>
-          <TagsInput />
+          <TagsInput journal_id={id} />
         </div> : <img src={spinner} alt="loader" />
       }
     </div>
