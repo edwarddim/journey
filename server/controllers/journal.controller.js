@@ -9,9 +9,9 @@ module.exports.create = async (req, res) => {
     }
 }
 
-module.exports.getAll = async (req, res) => {
+module.exports.getAllNamesOnly = async (req, res) => {
     try {
-        const allJournals = await JournalService.getAll()
+        const allJournals = await JournalService.getAllNamesOnly()
         return res.json(allJournals)
     } catch (error) {
         return res.json(error)
