@@ -17,7 +17,7 @@ const App = () => {
                 <h1>Heroes' Journey</h1>
                 <Routes>
                     <Route path="/" element={<Dashboard />} />
-                    <Route path="/journals/{id}" element={<Journal />} />
+                    <Route path="/journals/:id" element={<Journal />} />
 
 
 

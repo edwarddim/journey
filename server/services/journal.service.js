@@ -17,3 +17,12 @@ module.exports.getAllNamesOnly = async () => {
         return error
     }
 }
+
+module.exports.getOne = async (id) =>{
+    try {
+        const oneJournal = await Journal.findById(id)
+        return oneJournal
+    } catch (error) {
+        return error
+    }
+}

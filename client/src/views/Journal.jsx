@@ -1,15 +1,32 @@
 import React,{useEffect, useState} from 'react'
-import axios from "axios"
+import { useParams } from 'react-router-dom'
 import TagsInput from '../components/TagsInput'
-import { Link } from 'react-router-dom'
+import axios from "axios"
+
+import spinner from "../assets/images/load_spinner.gif"
 
 
 const Journal = ({}) => {
 
+  const {id} = useParams()
+
+  const [journal, setJournal] = useState()
+
+  useEffect(() => {
+    axios.get(`http://localhost:8000/api/journals/${id}`)
+      .then(response => setJournal(response.data))
+      .catch(error => console.log(error))
+  },[])
+
   return (
     <div>
-      <h1>Your Journals</h1>
-
+      {
+        (journal) ?
+        <div>
+          <h1>{journal.name} Journal</h1>
+          <TagsInput />
+        </div> : <img src={spinner} alt="loader" />
+      }
     </div>
   )
 }

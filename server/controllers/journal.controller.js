@@ -17,3 +17,12 @@ module.exports.getAllNamesOnly = async (req, res) => {
         return res.json(error)
     }
 }
+
+module.exports.getOne = async (req, res) => {
+    try {
+        const oneJournal = await JournalService.getOne(req.params.id)
+        return res.json(oneJournal)
+    } catch (error) {
+        res.json(error)
+    }
+}
