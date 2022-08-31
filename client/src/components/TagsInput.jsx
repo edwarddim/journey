@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import '../assets/css/TagsInput.css'
+import "../assets/css/TagsInput.css"
 
 const TagsInput = ({journal_id}) => {
     const [tags, setTags] = useState([])

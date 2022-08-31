@@ -44,3 +44,12 @@ module.exports.delete = async (req, res) => {
         res.json(error)
     }
 }
+
+module.exports.getJournalEntries = async (req,res) => {
+    try {
+        const allJournalEntries = await JournalService.getJournalEntries(req.params.id)
+        return res.json(allJournalEntries)
+    } catch (error) {
+        return res.json(error)
+    }
+}
