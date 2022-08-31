@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import '../assets/css/TagsInput.css'
 
 const TagsInput = ({journal_id}) => {
@@ -53,9 +54,13 @@ const TagsInput = ({journal_id}) => {
                     placeholder="Write your thoughts" cols="30" rows="10"
                 ></textarea>
             </div>
-            <button onClick={submitEntry} className='submit'>Submit</button>
+            <div>
+                <button onClick={submitEntry} className='submit'>Submit</button>
+                <Link className='history-btn' to="history">
+                    <button>See History</button>
+                </Link>
+            </div>
         </div>
-
     )
 }
 

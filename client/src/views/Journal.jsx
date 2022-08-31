@@ -1,15 +1,14 @@
 import React,{useEffect, useState} from 'react'
-import { useParams } from 'react-router-dom'
-import TagsInput from '../components/TagsInput'
+import { Route, Routes, useParams } from 'react-router-dom'
 import axios from "axios"
+
+import TagsInput from '../components/TagsInput'
+import History from '../components/History'
 
 import spinner from "../assets/images/load_spinner.gif"
 
-
 const Journal = ({}) => {
-
   const {id} = useParams()
-
   const [journal, setJournal] = useState()
 
   useEffect(() => {
@@ -22,10 +21,13 @@ const Journal = ({}) => {
     <div>
       {
         (journal) ?
-        <div>
-          <h1>{journal.name} Journal</h1>
-          <TagsInput journal_id={id} />
-        </div> : <img src={spinner} alt="loader" />
+          <div>
+            <h1>{journal.name} Journal</h1>
+            <TagsInput journal_id={id} />
+            <Routes>
+              <Route path="history" element={<History journal={journal} />} />
+            </Routes>
+          </div> : <img src={spinner} alt="loader" />
       }
     </div>
   )

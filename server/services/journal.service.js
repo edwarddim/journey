@@ -65,7 +65,6 @@ module.exports.addEntry = async (body, journal_id) => {
         oneJournal.entries.push(newEntry._id)
         const updatedJournal = await oneJournal.save()
         return updatedJournal
-        // console.log(updatedJournal)
     } catch (error) {
         console.log(error)
     }
