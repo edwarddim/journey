@@ -14,7 +14,7 @@ const History = ({ journal }) => {
               <span className="text">{tag.name}</span>
               <span
                 className="close"
-              >&times;</span>
+              >&#43;</span>
             </div>
           )
         })

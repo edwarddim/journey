@@ -20,9 +20,16 @@ module.exports.getAllNamesOnly = async () => {
     }
 }
 
-module.exports.getOne = async (id) =>{
+module.exports.getOneWithEntriesLimited = async (id) =>{
     try {
-        const oneJournal = await Journal.findById(id).populate("entries")
+        const oneJournal = await 
+            Journal.findById(id).populate({
+                path:'entries',
+                options:{
+                    limit:20,
+                    sort:{createdAt:-1}
+                }
+            })
         return oneJournal
     } catch (error) {
         return error

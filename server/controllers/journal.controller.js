@@ -20,7 +20,7 @@ module.exports.getAllNamesOnly = async (req, res) => {
 
 module.exports.getOne = async (req, res) => {
     try {
-        const oneJournal = await JournalService.getOne(req.params.id)
+        const oneJournal = await JournalService.getOneWithEntriesLimited(req.params.id)
         return res.json(oneJournal)
     } catch (error) {
         res.json(error)
