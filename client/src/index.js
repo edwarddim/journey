@@ -6,7 +6,7 @@ import App from "./App";
 require("dotenv").config()
 
 // STARTING FIREBASE
-require("./config/firebase.config")
+// require("./config/firebase.config")
 
 ReactDOM.render(
     <React.StrictMode>
