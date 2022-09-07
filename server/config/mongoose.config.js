@@ -1,9 +1,8 @@
 const mongoose = require("mongoose")
-const {ATLAS_PASSWORD} = require("./secret")
 
 const DATABASE = "heroes_journey"
 
-const uri = `mongodb+srv://edwarddim:${ATLAS_PASSWORD}@sandbox.hg1kzkd.mongodb.net/?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://edwarddim:${process.env.ATLAS_PASSWORD}@sandbox.hg1kzkd.mongodb.net/?retryWrites=true&w=majority`;
 
 mongoose.connect(uri, {
     useNewUrlParser: true,
