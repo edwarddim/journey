@@ -1,7 +1,9 @@
 body{
-    width: 50%;
     margin: 0 auto;
     font-family: 'Courier New', Courier, monospace;
+}
+.container{
+    width:80%;
 }
 
 .tags-input-container{

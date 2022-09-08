@@ -1,6 +1,8 @@
 import React from 'react'
 import {convertToStandardDate} from '../util/DateUtil'
 
+import Card from 'react-bootstrap/Card';
+
 
 const History = ({ journal }) => {
   const { tags,entries } = journal
@@ -12,7 +14,7 @@ const History = ({ journal }) => {
   return (
     <div className='history-container'>
       <h1 style={{'textAlign':'center'}}>Past Entries</h1>
-      {
+      {/* {
         tags.map((tag) => {
           return (
             <div className="tag-item" key={tag._id}>
@@ -24,16 +26,24 @@ const History = ({ journal }) => {
             </div>
           )
         })
-      }
+      } */}
       {
         (entries.length !== 0) ?
         entries.map((entry) => {
           return(
-            <div key={entry._id}>
-              <p>{entry.body}</p>
-              <p>Posted - {convertToStandardDate(entry.createdAt)}</p>
-            </div>
+            <Card className='my-2' key={entry._id}>
+              <Card.Body>
+                <Card.Text>{entry.body}</Card.Text>
+                <Card.Text>Posted - {convertToStandardDate(entry.createdAt)}</Card.Text>
+              </Card.Body>
+            </Card>
           )
+          // return(
+          //   <div key={entry._id}>
+          //     <p>{entry.body}</p>
+          //     <p>Posted - {convertToStandardDate(entry.createdAt)}</p>
+          //   </div>
+          // )
         }) : <h1 style={{'textAlign':'center'}}>No Entries Yet</h1>
       }
     </div>

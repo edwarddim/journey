@@ -28,7 +28,7 @@ const TagsInput = ({journal_id}) => {
     }
 
     return (
-        <div>
+        <>
             <div className="tags-input-container">
                 {tags.map((tag, index) => (
                     <div className="tag-item" key={index}>
@@ -60,7 +60,7 @@ const TagsInput = ({journal_id}) => {
                     <button>See History</button>
                 </Link>
             </div>
-        </div>
+        </>
     )
 }
 

@@ -6,7 +6,6 @@ import TagsInput from '../components/TagsInput'
 import History from '../components/History'
 
 import Spinner from 'react-bootstrap/Spinner';
-import spinner from "../assets/images/load_spinner.gif"
 
 const Journal = ({}) => {
   const {id} = useParams()
@@ -19,7 +18,7 @@ const Journal = ({}) => {
   },[])
 
   return (
-    <div>
+    <>
       {
         (journal) ?
           <div>
@@ -30,7 +29,7 @@ const Journal = ({}) => {
             </Routes>
           </div> : <Spinner animation="border" />
       }
-    </div>
+    </>
   )
 }
 

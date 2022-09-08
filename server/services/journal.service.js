@@ -62,7 +62,7 @@ module.exports.addEntry = async (body, journal_id) => {
             }
         }
         for(let tag of potentialTags){
-            const newTag = await TagService.create({name:tag})
+            const newTag = await TagService.create({name:tag.toLowerCase()})
             entryTags.push(newTag._id)
             existingTags.push(newTag)
         }
