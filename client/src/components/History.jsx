@@ -31,7 +31,7 @@ const History = ({ journal }) => {
         (entries.length !== 0) ?
         entries.map((entry) => {
           return(
-            <Card className='my-2' key={entry._id}>
+            <Card style={{ width: '100%' }} className='my-2' key={entry._id}>
               <Card.Body>
                 <Card.Text>{entry.body}</Card.Text>
                 <Card.Text>Posted - {convertToStandardDate(entry.createdAt)}</Card.Text>

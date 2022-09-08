@@ -21,13 +21,13 @@ const Journal = ({}) => {
     <>
       {
         (journal) ?
-          <div>
+          <>
             <h1>{journal.name} Journal</h1>
             <TagsInput journal_id={id} />
             <Routes>
               <Route path="history" element={<History journal={journal} />} />
             </Routes>
-          </div> : <Spinner animation="border" />
+          </> : <Spinner animation="border" />
       }
     </>
   )
