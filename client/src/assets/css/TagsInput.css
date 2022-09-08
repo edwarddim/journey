@@ -1,9 +1,7 @@
 body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 50%;
+    margin: 0 auto;
     font-family: 'Courier New', Courier, monospace;
-    font-weight: bold;
 }
 
 .tags-input-container{
@@ -59,4 +57,11 @@ body{
 .history-container{
     margin-top: 1em;
     padding: 0 .5em;
+}
+
+.journal-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1em;
 }

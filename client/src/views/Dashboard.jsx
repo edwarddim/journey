@@ -1,31 +1,32 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
-import { Link } from 'react-router-dom'
+import CreateJournal from '../components/CreateJournal'
+import JournalCard from '../components/JournalCard'
 
 
 const Dashboard = ({ }) => {
-
   const [journals, setJournals] = useState([])
 
   useEffect(() => {
     axios.get("http://localhost:8000/api/journals")
       .then(response => setJournals(response.data))
       .catch(error => console.log(error))
-
   }, [])
 
   return (
     <div>
-      <h1>Your Journals</h1>
-      {
-        journals.map((journal) => {
-          return (
-            <div key={journal._id}>
-              <Link to={`/journals/${journal._id}`}>{journal.name}</Link>
-            </div>
-          )
-        })
-      }
+      <h1>Start something New!</h1>
+      <CreateJournal />
+      <h2>Journal Notebook</h2>
+      <div className='journal-container'>
+        {
+          journals.map((journal) => {
+            return (
+              <JournalCard key={journal._id} journal={journal} />
+            )
+          })
+        }
+      </div>
     </div>
   )
 }

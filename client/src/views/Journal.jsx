@@ -5,6 +5,7 @@ import axios from "axios"
 import TagsInput from '../components/TagsInput'
 import History from '../components/History'
 
+import Spinner from 'react-bootstrap/Spinner';
 import spinner from "../assets/images/load_spinner.gif"
 
 const Journal = ({}) => {
@@ -27,7 +28,7 @@ const Journal = ({}) => {
             <Routes>
               <Route path="history" element={<History journal={journal} />} />
             </Routes>
-          </div> : <img src={spinner} alt="loader" />
+          </div> : <Spinner animation="border" />
       }
     </div>
   )

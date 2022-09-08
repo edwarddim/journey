@@ -7,13 +7,13 @@ module.exports.create = async (data) => {
         const newJournal = await Journal.create(data)
         return newJournal
     } catch (error) {
-        return error
+        throw error
     }
 }
 
 module.exports.getAllNamesOnly = async () => {
     try {
-        const allJournals = await Journal.find({}, "name")
+        const allJournals = await Journal.find({}, "name createdAt")
         return allJournals
     } catch (error) {
         return error
@@ -46,9 +46,11 @@ module.exports.deleteOne = async (id) => {
 }
 
 
+
+
 module.exports.addEntry = async (body, journal_id) => {
     const {tags:potentialTags, entry} = body
-    const oneJournal = await this.getOne(journal_id)
+    const oneJournal = await Journal.findById(journal_id)
     const {tags:existingTags} = oneJournal
     try {
         const entryTags = []

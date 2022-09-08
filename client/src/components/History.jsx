@@ -1,4 +1,5 @@
 import React from 'react'
+import {convertToStandardDate} from '../util/DateUtil'
 
 
 const History = ({ journal }) => {
@@ -25,14 +26,15 @@ const History = ({ journal }) => {
         })
       }
       {
+        (entries.length !== 0) ?
         entries.map((entry) => {
           return(
             <div key={entry._id}>
               <p>{entry.body}</p>
-              <p>Posted - {new Date(entry.createdAt).toLocaleDateString('en-US')}</p>
+              <p>Posted - {convertToStandardDate(entry.createdAt)}</p>
             </div>
           )
-        })
+        }) : <h1 style={{'textAlign':'center'}}>No Entries Yet</h1>
       }
     </div>
   )
