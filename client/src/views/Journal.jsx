@@ -3,9 +3,10 @@ import { Route, Routes, useParams } from 'react-router-dom'
 import axios from "axios"
 
 import TagsInput from '../components/TagsInput'
-import History from '../components/History'
+import RecentHistory from '../components/RecentHistory'
 
 import Spinner from 'react-bootstrap/Spinner';
+import AllHistory from '../components/AllHistory'
 
 const Journal = ({}) => {
   const {id} = useParams()
@@ -25,7 +26,8 @@ const Journal = ({}) => {
             <h1>{journal.name} Journal</h1>
             <TagsInput journal_id={id} />
             <Routes>
-              <Route path="history" element={<History journal={journal} />} />
+              <Route path="recent" element={<RecentHistory journal={journal} />} />
+              <Route path='history' element={<AllHistory />} />
             </Routes>
           </> : <Spinner animation="border" />
       }

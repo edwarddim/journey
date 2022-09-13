@@ -56,9 +56,13 @@ const TagsInput = ({journal_id}) => {
             </div>
             <div>
                 <button onClick={submitEntry} className='submit'>Submit</button>
-                <Link className='history-btn' to="history">
-                    <button>See History</button>
+                <Link className='history-btn' to="recent">
+                    <button>See Recent Entries</button>
                 </Link>
+                <Link className='history-btn' to="history">
+                    <button>See All Entries</button>
+                </Link>
+
             </div>
         </div>
     )

@@ -17,8 +17,8 @@ const Dashboard = ({ }) => {
     <div>
       <h1>Start something New!</h1>
       <CreateJournal />
-      <h2>Journal Notebook</h2>
-      <div className='journal-container'>
+      <h2 className='mt-3'>Journal Notebook</h2>
+      <div className='journal-container py-1'>
         {
           journals.map((journal) => {
             return (

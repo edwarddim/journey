@@ -9,7 +9,6 @@ import {
 
 
 const Auth = () => {
-
     useEffect(() => {
         const auth = getAuth();
         getRedirectResult(auth)

@@ -8,10 +8,9 @@ import "./assets/css/index.css"
 import Journal from './views/Journal';
 
 const App = () => {
-
     return (
         <>
-            <Container>
+            <Container className="py-2">
                 <Routes>
                     <Route path="/" element={<Dashboard />} />
                     <Route path="/journals/:id/*" element={<Journal />} />

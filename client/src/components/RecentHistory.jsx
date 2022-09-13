@@ -4,7 +4,7 @@ import {convertToStandardDate} from '../util/DateUtil'
 import Card from 'react-bootstrap/Card';
 
 
-const History = ({ journal }) => {
+const RecentHistory = ({ journal }) => {
   const { tags,entries } = journal
 
   const addTagToFilter = (tag_id) => {
@@ -13,20 +13,7 @@ const History = ({ journal }) => {
 
   return (
     <div className='history-container'>
-      <h1 style={{'textAlign':'center'}}>Past Entries</h1>
-      {/* {
-        tags.map((tag) => {
-          return (
-            <div className="tag-item" key={tag._id}>
-              <span className="text">{tag.name}</span>
-              <span
-                onClick={() => addTagToFilter(tag._id)}
-                className="add-tag"
-              >&#43;</span>
-            </div>
-          )
-        })
-      } */}
+      <h1 style={{'textAlign':'center'}}>Recent Entries</h1>
       {
         (entries.length !== 0) ?
         entries.map((entry) => {
@@ -50,4 +37,4 @@ const History = ({ journal }) => {
   )
 }
 
-export default History
+export default RecentHistory
