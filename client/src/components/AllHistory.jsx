@@ -1,9 +1,11 @@
 import React, {useEffect} from 'react';
-import axios from 'axios';
+import {convertToStandardDate} from '../util/DateUtil'
+
+import Card from 'react-bootstrap/Card';
+
 
 const AllHistory = ({journal}) => {
-  const {tags, _id} = journal
-  console.log(_id)
+  const {tags, _id, entries} = journal
   useEffect(() => {
     // axios.get(`http://localhost:8000/api/`)
   }, [])
@@ -19,6 +21,18 @@ const AllHistory = ({journal}) => {
                 >&times;</span>
             </div>
         ))}
+        {
+          entries.map((entry) => {
+            return(
+              <Card style={{ width: '100%' }} className='my-2' key={entry._id}>
+                <Card.Body>
+                  <Card.Text>{entry.body}</Card.Text>
+                  <Card.Text>Posted - {convertToStandardDate(entry.createdAt)}</Card.Text>
+                </Card.Body>
+              </Card>
+            )
+          })
+        }
     </div>
   )
 }
