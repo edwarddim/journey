@@ -27,7 +27,7 @@ const Journal = ({}) => {
             <TagsInput journal_id={id} />
             <Routes>
               <Route path="recent" element={<RecentHistory journal={journal} />} />
-              <Route path='history' element={<AllHistory />} />
+              <Route path='history' element={<AllHistory journal={journal} />} />
             </Routes>
           </> : <Spinner animation="border" />
       }

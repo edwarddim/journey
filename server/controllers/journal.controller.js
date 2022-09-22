@@ -23,7 +23,7 @@ module.exports.getOne = async (req, res) => {
         const oneJournal = await JournalService.getOneWithEntriesLimited(req.params.id)
         return res.json(oneJournal)
     } catch (error) {
-        res.json(error)
+        return res.json(error)
     }
 }
 
@@ -47,7 +47,7 @@ module.exports.delete = async (req, res) => {
 
 module.exports.getJournalEntries = async (req,res) => {
     try {
-        const allJournalEntries = await JournalService.getJournalEntries(req.params.id)
+        const allJournalEntries = await JournalService.getOneWithEntriesAll(req.params.id)
         return res.json(allJournalEntries)
     } catch (error) {
         return res.json(error)

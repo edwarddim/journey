@@ -25,12 +25,6 @@ const RecentHistory = ({ journal }) => {
               </Card.Body>
             </Card>
           )
-          // return(
-          //   <div key={entry._id}>
-          //     <p>{entry.body}</p>
-          //     <p>Posted - {convertToStandardDate(entry.createdAt)}</p>
-          //   </div>
-          // )
         }) : <h1 style={{'textAlign':'center'}}>No Entries Yet</h1>
       }
     </div>

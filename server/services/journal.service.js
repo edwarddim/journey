@@ -20,6 +20,15 @@ module.exports.getAllNamesOnly = async () => {
     }
 }
 
+module.exports.getOneWithEntriesAll = async (journal_id) => {
+    try {
+        const oneJournal = await Journal.findOne({_id:journal_id}, "entries").populate("entries")
+        return oneJournal.entries
+    } catch (error) {
+        return error
+    }
+}
+
 module.exports.getOneWithEntriesLimited = async (id) =>{
     try {
         const oneJournal = await 
@@ -76,14 +85,6 @@ module.exports.addEntry = async (body, journal_id) => {
         return updatedJournal
     } catch (error) {
         console.log(error)
-    }
-}
-
-module.exports.getJournalEntries = async (journal_id) => {
-    try {
-        const oneJournal = await Journal.findOne({_id:journal_id}, "entries").populate("entries")
-        return oneJournal.entries
-    } catch (error) {
         return error
     }
 }
