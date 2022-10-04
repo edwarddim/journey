@@ -7,9 +7,6 @@ import Card from 'react-bootstrap/Card';
 const RecentHistory = ({ journal }) => {
   const { tags,entries } = journal
 
-  const addTagToFilter = (tag_id) => {
-    console.log(tag_id)
-  }
 
   return (
     <div className='history-container'>

@@ -1,38 +1,40 @@
-import React, {useEffect} from 'react';
-import {convertToStandardDate} from '../util/DateUtil'
+import React, { useEffect, useState } from 'react';
 
-import Card from 'react-bootstrap/Card';
+import EntryDisplay from './EntryDisplay';
 
 
-const AllHistory = ({journal}) => {
-  const {tags, _id, entries} = journal
+const AllHistory = ({ journal }) => {
+
+  const [filteredEntries, setFilteredEntries] = useState()
+  const [filterToggle, setFilterToggle] = useState(false)
+  const { tags, _id, entries } = journal
+
+  const filterTags = (id) => {
+    setFilterToggle(true)
+    const filteredEntries = entries.filter(entry => entry.tags.includes(id))
+    setFilteredEntries(filteredEntries)
+  }
+
   useEffect(() => {
     // axios.get(`http://localhost:8000/api/`)
   }, [])
   return (
     <div className='history-container'>
-        <h1 style={{'textAlign':'center'}}>All Entries</h1>
-        {tags.map((tag, index) => (
-            <div className="tag-item" key={index}>
-                <span className="text">{tag.name}</span>
-                <span
-                    className="close"
-                    onClick={() => removeTag(index)}
-                >&times;</span>
-            </div>
-        ))}
-        {
-          entries.map((entry) => {
-            return(
-              <Card style={{ width: '100%' }} className='my-2' key={entry._id}>
-                <Card.Body>
-                  <Card.Text>{entry.body}</Card.Text>
-                  <Card.Text>Posted - {convertToStandardDate(entry.createdAt)}</Card.Text>
-                </Card.Body>
-              </Card>
-            )
-          })
-        }
+      <h1 style={{ 'textAlign': 'center' }}>All Entries</h1>
+      <h3>Click tags to filter entries</h3>
+      {tags.map((tag, index) => (
+        <div className="tag-item" key={index}>
+          <span className="text">{tag.name}</span>
+          <span
+            className="close"
+            onClick={() => filterTags(tag._id)}
+          >&times;</span>
+        </div>
+      ))}
+      {
+        filterToggle ? <EntryDisplay entries={filteredEntries} />: <EntryDisplay entries={entries} />
+      }
+
     </div>
   )
 }
