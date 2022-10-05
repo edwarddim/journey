@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
 import CreateJournal from '../components/CreateJournal'
-import JournalCard from '../components/JournalCard'
+import JournalCard from '../components/presentational/JournalCard'
 
 
 const Dashboard = ({ }) => {

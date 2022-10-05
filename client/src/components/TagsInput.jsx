@@ -6,6 +6,7 @@ import "../assets/css/TagsInput.css"
 const TagsInput = ({ journal_id }) => {
   const [tags, setTags] = useState([])
   const [entry, setEntry] = useState("")
+  const [activeButton, setActiveButton] = useState(0)
 
   const handleKeyDown = e => {
     if (e.key !== 'Enter') return
@@ -56,11 +57,11 @@ const TagsInput = ({ journal_id }) => {
       </div>
       <div>
         <button onClick={submitEntry} className='submit'>Submit</button>
-        <Link className='history-btn' to="recent">
-          <button>See Recent Entries</button>
+        <Link to="recent">
+          <button onClick={() => setActiveButton(1)} className={`history-btn ${(activeButton===1) ? 'active':''}`}>See Recent Entries</button>
         </Link>
-        <Link className='history-btn' to="history">
-          <button>See All Entries</button>
+        <Link to="history">
+          <button onClick={() => setActiveButton(2)} className={`history-btn ${(activeButton===2) ? 'active':''}`}>See All Entries</button>
         </Link>
       </div>
     </div>

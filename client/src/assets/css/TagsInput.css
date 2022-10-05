@@ -53,6 +53,13 @@ body{
     margin-left: .5em;
 }
 
+.active,
+.history-btn:hover, 
+.submit:hover {
+    background-color: darkslategrey;
+    color: white;
+  }
+
 .history-container{
     margin-top: 1em;
     padding: 0 .5em;

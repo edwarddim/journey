@@ -1,6 +1,6 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card';
-import { convertToStandardDate } from '../util/DateUtil'
+import { convertToStandardDate } from '../../util/DateUtil'
 
 
 const EntryDisplay = ({ entries }) => {
