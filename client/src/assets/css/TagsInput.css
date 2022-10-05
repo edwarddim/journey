@@ -22,6 +22,9 @@ body{
     margin: 0 .5em;
     border-radius: 20px;
 }
+
+
+
 .tag-item .close,
 .add-tag{
     height: 20px;
@@ -54,11 +57,12 @@ body{
 }
 
 .active,
-.history-btn:hover, 
+.history-btn:hover,
+.tag-item:hover,
 .submit:hover {
     background-color: darkslategrey;
     color: white;
-  }
+}
 
 .history-container{
     margin-top: 1em;
